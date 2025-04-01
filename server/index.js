@@ -1,16 +1,22 @@
 const express = require('express');
-const connectDB = require('./db.js'); // database.js dosyasını dahil et
+const connectDB = require('./config/db');  
+const userRoutes = require('./routes/userRoutes');  
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
-// MongoDB bağlantısını başlat
+
 connectDB();
 
-app.get('/', (req, res) => {
-  res.send('MongoDB ile bağlantı başarılı!');
-});
 
+app.use(express.json());
+
+
+app.use('/api/users', userRoutes);
+
+app.get('/', (req, res) => {
+	res.send('MERN API çalışıyor!');
+});
 app.listen(port, () => {
-  console.log(`Sunucu http://localhost:${port} adresinde çalışıyor.`);
+  console.log(`Sunucu ${port} portunda çalışıyor.`);
 });
