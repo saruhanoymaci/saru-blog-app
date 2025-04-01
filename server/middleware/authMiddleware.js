@@ -9,7 +9,6 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    // Token'ı doğrula
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; 
     next();
