@@ -6,25 +6,33 @@ import Login from "./pages/Login";
 import Layout from "./layouts/Layout";
 import Profile from "./pages/Profile";
 
+const AppRoutes = () => {
 
-const router = createBrowserRouter([
+  const router = createBrowserRouter([
     {
-        path: "/",
-        element: <Layout />, 
-        children: [
-            { index: true, element: <Home /> },
-            { path: "*", element: <NotFound /> },
-            { path: "/profile", element: <Profile /> },
-        ],
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "*", element: <NotFound /> },
+        { path: "/profile", element: <Profile /> },
+      ],
     },
     {
-       path: "/login",
-       element: <Login />, 
+      path: "/login",
+      element: <Login />,
     },
     {
-        path: "/register",
-        element: <Register />,
-    }
-]);
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
 
-export default router;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+};
+
+export default AppRoutes;

@@ -68,6 +68,11 @@ const login = async (req, res) => {
         id: user._id,
         username: user.username,
         email: user.email,
+        fullName: user.fullName,
+        birthDate: user.birthDate,
+        gender: user.gender,
+        birthPlace: user.birthPlace,
+        createdAt: user.createdAt,
       },
     });
   } catch (error) {
