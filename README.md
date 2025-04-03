@@ -1,5 +1,11 @@
 # BLOG MERN APP
 
+### client .env değişkenleri
+VITE_API_URL=
+
+#### VITE_API_URL'e istek atılacak(BE) url'i yazılması gereklidir.
+
+
 ### server .env değişkenleri
 - MONGO_URI=
 - JWT_SECRET=
