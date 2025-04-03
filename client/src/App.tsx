@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Toastify CSS dosyasını import edin
 import AppRoutes from "./AppRoutes";

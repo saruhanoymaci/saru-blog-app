@@ -2,7 +2,7 @@ import { Form, Input, Button, Card, Typography } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 import { authService } from "../services/authService";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 
@@ -10,6 +10,8 @@ const { Title, Text } = Typography;
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 500);
   }, []);
@@ -19,7 +21,7 @@ const Login = () => {
       const data = await authService.login(values);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      redirect("/");
+      navigate("/");
     } catch (error: any) {
       console.error("Login error:", error);
       toast.error(error.response?.data?.message || "Login failed!"); // Hata bildirimi
