@@ -10,13 +10,39 @@ const Header = () => {
         <nav>
           <ul className="flex space-x-6">
             <li>
-              <Link to="/" className="hover:underline">
+              <Link
+                to="/"
+                className="relative hover:text-yellow-300 transition duration-300 ease-in-out"
+              >
                 Home
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-300 transition-all duration-300 ease-in-out hover:w-full"></span>
               </Link>
             </li>
             <li>
-              <Link to="/about" className="hover:underline">
-                About
+              <Link
+                to="/profile"
+                className="relative hover:text-yellow-300 transition duration-300 ease-in-out"
+              >
+                Profile
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-300 transition-all duration-300 ease-in-out hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/login"
+                className="relative hover:text-yellow-300 transition duration-300 ease-in-out"
+              >
+                Login
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-300 transition-all duration-300 ease-in-out hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/register"
+                className="relative hover:text-yellow-300 transition duration-300 ease-in-out"
+              >
+                Register
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-300 transition-all duration-300 ease-in-out hover:w-full"></span>
               </Link>
             </li>
           </ul>

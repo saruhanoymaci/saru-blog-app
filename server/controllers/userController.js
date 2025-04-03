@@ -6,7 +6,7 @@ const sendMail = require("../config/mailService");
 
 const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, fullName, birthDate, birthPlace, gender } = req.body;
 
     const existingUser = await User.findOne({
       $or: [{ username }, { email }],
@@ -14,21 +14,31 @@ const register = async (req, res) => {
 
     if (existingUser) {
       return res.status(400).json({
-        message: "Kullanıcı adı veya e-posta zaten kullanılıyor!",
+        message: "Username or email is already in use!",
       });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+
+    const newUser = new User({
+      username,
+      email,
+      password: hashedPassword,
+      fullName,
+      birthDate,
+      birthPlace,
+      gender,
+    });
+
     await newUser.save();
 
     res.status(201).json({
-      message: "Kullanıcı başarıyla oluşturuldu!",
+      message: "User successfully registered!",
       user: newUser,
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Bir hata oluştu." });
+    res.status(500).json({ message: "An error occurred." });
   }
 };
 
